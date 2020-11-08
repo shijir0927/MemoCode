@@ -1,40 +1,54 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
-import { Button, Text } from 'react-native';
+import { View, Button, Text, SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 //components
 import NumbersMemo from './components/numbers/numbersMemo';
 import NumbersRecall from './components/numbers/numbersRecall';
+import NumbersStaging from './components/numbers/numbersStaging';
+import HomeScreen from './components/screens/homeScreen';
 
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
+      <Tab.Navigator>
+        <Tab.Screen
           name="Home"
-          component={HomeScreen}
-          options={{ title: 'MemoCode' }}
+          component={HomeScreenStack}
         />
-        <Stack.Screen name="Numbers-Memo" component={NumbersMemo}/>
-        <Stack.Screen name='Numbers-Recall' component = {NumbersRecall}/>
-      </Stack.Navigator>
+        <Tab.Screen
+          name="Settings"
+          component={SettingsScreen}
+        />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 };
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreenStack = ()=>{
   return (
-    <Button
-      title="Numbers Event"
-      onPress={() => navigation.navigate('Numbers-Memo', { name: 'Jane' })}
-    />
+    <Stack.Navigator>
+      <Stack.Screen name="Memorise" component={HomeScreen} />
+      <Stack.Screen name="Numbers-Memo" component={NumbersMemo} />
+      <Stack.Screen name="Numbers-Recall" component={NumbersRecall} />
+      <Stack.Screen name='Numbers-Staging' component={NumbersStaging}/>
+    </Stack.Navigator>
+  )
+}
+
+
+
+const SettingsScreen = ({ navigation }) => {
+  return (
+    <SafeAreaView>
+      <Text>Settings</Text>
+    </SafeAreaView>
   );
-};
-const ProfileScreen = () => {
-  return <Text>This is Jane's profile</Text>;
 };
 
 export default App;

@@ -2,11 +2,11 @@ import React ,{useState, useEffect} from 'react';
 import {Text, View, Button, StyleSheet} from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 
-const NumbersRecall= (route, navigation) =>{
+const NumbersRecall= ({route, navigation}) =>{
 
-    const { numbers } = route.route.params;
-    const [counter, setCounter] = React.useState(60);
-    const [value, onChangeText] = React.useState('');
+    const { numbers, recallTime } = route.params;
+    const [counter, setCounter] = useState(recallTime);
+    const [value, onChangeText] = useState('');
 
     useEffect(()=>{
         const timer = counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
@@ -24,7 +24,8 @@ const NumbersRecall= (route, navigation) =>{
                 correctCount++;
             }
         }
-        alert(`You got ${correctCount} out of ${numbers.length}`)
+        alert(`You got ${correctCount} out of ${numbers.length}`);
+        navigation.navigate('Memorise');
     }
 
     return (
