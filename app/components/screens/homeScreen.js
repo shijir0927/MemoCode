@@ -10,7 +10,7 @@ const HomeScreen = ({ navigation }) => {
                     <EventCard eventName = 'Numbers' eventText = 'Memorize random numbers' cardColor = 'blue' />
                 </Pressable>
 
-                <Pressable onPress={() => navigation.navigate('Numbers-Memo')} style = {styles.card}>
+                <Pressable onPress={() => navigation.navigate('Words-Staging')} style = {styles.card}>
                     <EventCard eventName = 'Words' eventText = 'Memorize random words' cardColor = 'purple' />
                 </Pressable>
 
