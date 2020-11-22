@@ -27,7 +27,7 @@ const App = () => {
           component={HomeScreenStack}
         />
         <Tab.Screen
-          name="Settings"
+          name="Scores"
           component={SettingsScreen}
         />
       </Tab.Navigator>
@@ -54,7 +54,12 @@ const HomeScreenStack = ()=>{
 const SettingsScreen = ({ navigation }) => {
   return (
     <SafeAreaView>
-      <Text>Settings</Text>
+      <Text>Best Scores</Text>
+      <Text>Numbers: 80 numbers in 45 seconds</Text>
+      <Text>Words: 80 numbers in 45 seconds</Text>
+      <Text>Binary: 80 numbers in 45 seconds</Text>
+      <Text>Cards: 80 numbers in 45 seconds</Text>
+
     </SafeAreaView>
   );
 };
