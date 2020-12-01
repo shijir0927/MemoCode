@@ -6,10 +6,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 //screens
 import HomeScreen from './components/screens/homeScreen';
+import SettingsScreen from './components/screens/settingsScreen';
 //components
 import NumbersMemo from './components/numbers/numbersMemo';
 import NumbersRecall from './components/numbers/numbersRecall';
 import NumbersStaging from './components/numbers/numbersStaging';
+import NumebrsResult from './components/numbers/numbersResult';
 import WordsStaging from './components/words/wordsStaging';
 import WordsMemo from './components/words/wordsMemo';
 import WordsRecall from './components/words/wordsRecall';
@@ -42,6 +44,7 @@ const HomeScreenStack = ()=>{
       <Stack.Screen name="Numbers-Memo" component={NumbersMemo} />
       <Stack.Screen name="Numbers-Recall" component={NumbersRecall} />
       <Stack.Screen name='Numbers-Staging' component={NumbersStaging}/>
+      <Stack.Screen name='Numbers-Result' component={NumebrsResult}/>
       <Stack.Screen name="Words-Memo" component={WordsMemo} />
       <Stack.Screen name="Words-Recall" component={WordsRecall} />
       <Stack.Screen name='Words-Staging' component={WordsStaging}/>
@@ -51,17 +54,6 @@ const HomeScreenStack = ()=>{
 
 
 
-const SettingsScreen = ({ navigation }) => {
-  return (
-    <SafeAreaView>
-      <Text>Best Scores</Text>
-      <Text>Numbers: 80 numbers in 45 seconds</Text>
-      <Text>Words: 80 numbers in 45 seconds</Text>
-      <Text>Binary: 80 numbers in 45 seconds</Text>
-      <Text>Cards: 80 numbers in 45 seconds</Text>
 
-    </SafeAreaView>
-  );
-};
 
 export default App;

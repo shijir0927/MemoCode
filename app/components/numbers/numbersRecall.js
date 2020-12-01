@@ -24,8 +24,8 @@ const NumbersRecall= ({route, navigation}) =>{
                 correctCount++;
             }
         }
-        alert(`You got ${correctCount} out of ${numbers.length}`);
-        navigation.navigate('Memorise');
+        // alert(`You got ${correctCount} out of ${numbers.length}`);
+        navigation.navigate('Numbers-Result', {totalCount: numbers.length, correctCount: correctCount, recalled: value, memorized: numbers});
     }
 
     return (
